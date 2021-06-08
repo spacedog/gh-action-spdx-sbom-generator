@@ -2,6 +2,18 @@
 
 This actions generates sbom file from a package file based on language ecosystem.
 
+## Workflow setup
+
+```yaml
+# workflow name
+name: Generate sbom file
+
+# on events
+on:
+  release:
+    types:
+        - created
+
 # workflow tasks
 jobs:
   generate:
@@ -13,6 +25,5 @@ jobs:
       - name: Generate sbom
         uses: niravpatel27/gh-action-spdx-sbom-generator@v1
         with:
-            commands: '-h'
-            version: '1.0.0'
+            version: '0.0.3'
 ```
