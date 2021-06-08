@@ -1,0 +1,20 @@
+
+# action.yml
+name: 'gh-action-spdx-sbom-generator'
+description: 'Runs spdx-sbom-generator cli'
+branding:
+  icon: 'command'
+  color: 'red'
+inputs:
+  command:
+    description: 'spdx-sbom-generator command to run'
+    required: false
+  version:
+    description: 'The version of spdx-sbom-generator to use'
+    required: false
+    default: latest
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.command }}
