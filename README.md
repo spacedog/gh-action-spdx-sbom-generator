@@ -23,7 +23,7 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v2
       - name: Generate sbom
-        uses: niravpatel27/gh-action-spdx-sbom-generator@v1
+        uses: niravpatel27/gh-action-spdx-sbom-generator@v1.0.0
         with:
-            version: '0.0.3'
+            version: '0.0.9'
 ```
