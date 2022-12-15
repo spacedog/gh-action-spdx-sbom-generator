@@ -34,8 +34,12 @@ func main() {
 		panic(err)
 	}
 	// execute spdx-sbom-generator cli
-	if output, err := exec.Command("./spdx-sbom-generator", inputCommands).Output(); err != nil {
+	if output, err := exec.Command("./spdx-sbom-generator", inputCommands).CombinedOutput(); err != nil {
 		fmt.Println("An error occurred during spdx-sbom-generator operation:", err)
+		if output != nil {
+			fmt.Println("--- OUTPUT ---")
+			fmt.Printf("%s\n", output)
+		}
 		os.Exit(1)
 	} else {
 		fmt.Println("--- OUTPUT ---")
