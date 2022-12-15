@@ -80,10 +80,13 @@ func DownloadFile(url string) error {
 
 		// current target dir where the file should be downloaded
 		path, err := os.Getwd()
+		fmt.Println("--- DEBUG: Path ---", path)
 		if err != nil {
 			return err
 		}
 		target := filepath.Join(path, header.Name)
+
+		fmt.Println("--- DEBUG: Target ---", target)
 
 		// check the file type
 		switch header.Typeflag {
@@ -98,6 +101,7 @@ func DownloadFile(url string) error {
 
 		case tar.TypeReg:
 			f, err := os.OpenFile(target, os.O_CREATE|os.O_RDWR, os.FileMode(header.Mode))
+			fmt.Println("--- DEBUG: F ---", f)
 			if err != nil {
 				return err
 			}
