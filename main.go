@@ -16,14 +16,16 @@ func main() {
 	// get input variables from action
 	inputVersion := os.Getenv("INPUT_VERSION")
 	inputCommands := os.Getenv("INPUT_COMMANDS")
+	inputArch := os.Getenv("INPUT_ARCH")
 
 	// build artifact url
 	githubPackageURL := "https://github.com/spdx/spdx-sbom-generator/releases/download/v"
-	artifactName := "-linux-386.tar.gz"
+	artifactName 	 := fmt.Sprintf("-linux-%s.tar.gz", inputArch)
 	url := fmt.Sprintf("%s%s%s%s%s", githubPackageURL, inputVersion, "/spdx-sbom-generator-v", inputVersion, artifactName)
 
 	fmt.Println("--- VERSION ---", inputVersion)
 	fmt.Println("--- COMMAND ---", inputCommands)
+	fmt.Println("--- ARCH ---",    inputArch)
 	fmt.Println("--- URL ---", url)
 
 	//download artifact file
