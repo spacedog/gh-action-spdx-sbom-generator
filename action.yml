@@ -15,7 +15,7 @@ inputs:
   arch:
     description: 'Arch to use for spdx-sbom cli'
     required: false
-    default: amd64
+    default: 386
 runs:
   using: 'docker'
   image: 'Dockerfile'
