@@ -33,7 +33,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("--- DEBUG: Path ---", os.Getwd())
+	path, err := os.Getwd()
+	fmt.Println("--- DEBUG: Path ---", path)
 	// execute spdx-sbom-generator cli
 	if output, err := exec.Command("./spdx-sbom-generator", inputCommands).Output(); err != nil {
 		fmt.Println("An error occurred during spdx-sbom-generator operation:", err)
