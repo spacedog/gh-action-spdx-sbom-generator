@@ -5,7 +5,7 @@ branding:
   icon: 'command'
   color: 'red'
 inputs:
-  command:
+  commands:
     description: 'spdx-sbom-generator command to run'
     required: false
   version:
@@ -20,4 +20,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.command }}
+    - ${{ inputs.commands }}
